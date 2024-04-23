@@ -14,7 +14,7 @@ const getUrlHost = computed((url) => {
     }
 })
 
-const getFavicon = (url) => `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${url}&size=64`
+const getFavicon = (url) => `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${url}&size=32`
 
 const deleteBookmark = (bookmark) => {
     bookmarks.value = bookmarks.value.filter((item) => item !== bookmark)
@@ -114,6 +114,18 @@ const deleteBookmark = (bookmark) => {
     text-decoration: none;
     color: #666;
     text-wrap: nowrap;
+    position: relative;
+}
+
+.bookmark__url::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: -0.5em;
+    top: -0.5em;
+    padding: 0.5em;
+    font-size: 1em;
 }
 
 .bookmark__url::after {
